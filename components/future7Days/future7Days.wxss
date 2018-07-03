@@ -1,0 +1,9 @@
+/* components/future7Days/future7Days.wxss */
+.seven-days {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  flex-direction: column;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}

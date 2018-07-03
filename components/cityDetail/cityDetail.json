@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "today": "/components/today/today",
+    "future-seven-days": "/components/future7Days/future7Days",
+    "city-list": "/components/cityListButton/cityListButton"
+  }
+}

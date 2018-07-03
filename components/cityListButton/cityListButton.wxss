@@ -1,0 +1,16 @@
+/* components/cityList/cityList.wxss */
+.city-list {
+  overflow: hidden;
+  margin-top: -20rpx;
+  
+}
+.city-list-button {
+  padding: 20rpx;
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+}
+.city-list-image {
+  width: 100%;
+  height: 100%;
+}

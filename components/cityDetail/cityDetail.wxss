@@ -1,0 +1,24 @@
+/* cityDetail.wxss */
+.container {
+  color: rgb(136, 136, 136);
+  padding: 0;
+  width: 90%;
+  margin: 0 auto;
+  /* background-color: #F6F6F6; */
+}
+.title {
+  font-size: 56rpx;
+  padding-bottom: 20rpx;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+.title-special {
+  padding-top: 46rpx;
+}
+/* footer */
+.footer {
+  text-align: center;
+  font-size: 24rpx;
+  padding: 40rpx;
+}

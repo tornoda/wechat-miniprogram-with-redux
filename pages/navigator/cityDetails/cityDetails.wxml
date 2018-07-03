@@ -1,0 +1,6 @@
+<view>
+  <city-detail 
+    city-weather="{{cityWeather}}"
+    is-index-page="{{isIndexPage}}"
+  />
+</view>

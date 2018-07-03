@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "main-info": "/components/today/parts/mainInfo/mainInfo",
+    "weather-index": "/components/today/parts/weatherIndex/weatherIndex"
+  }
+}

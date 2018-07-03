@@ -1,0 +1,47 @@
+/* components/future7Days/future-oneday/futureOneday.wxss */
+/* common style */
+.flex-column {
+  display: flex;
+  flex-direction: column
+}
+/* A-flex盒子 */
+.someday {
+  text-align: center;
+  order: 1;
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 160rpx;
+  display: flex;
+  flex-direction: row;
+  margin-top: 14rpx;
+  margin-bottom: 14rpx;
+  align-items: stretch;
+}
+/* B-flex = A-flex-item,子元素 */
+.date-week {
+  /* flex-column */
+  flex-grow: 1;
+  font-weight: bold;
+  justify-content: center;
+}
+.weather-icon {
+  flex-basis: 160rpx;
+  width: 160rpx;
+  height: 160rpx;
+  flex-grow: 0;
+}
+.weather-temp {
+  /* flex-column */
+  flex-grow: 1;
+  justify-content: center;
+}
+/* date-week细部 1*/
+.date {
+  font-size: 28rpx;
+  display: block;
+}
+.week {
+  font-size: 40rpx;
+  display: block;
+}
+/* weather-temp细部2 */

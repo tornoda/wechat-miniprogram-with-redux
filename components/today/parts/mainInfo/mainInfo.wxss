@@ -1,0 +1,77 @@
+/* components/today/parts/mainInfo/mainInfo.wxss */
+.info {
+  width: 100%;
+  height: 426rpx;
+  margin-bottom: 20rpm;
+}
+.header {
+  display: inline-block;
+  font-size: 36rpx;
+  line-height: 3;
+  margin-top: -28rpx;
+}
+.week {
+  font-weight: bold;
+  margin-right: 60rpx;
+}
+.update-time {
+  font-size: 24rpx;
+}
+.main {
+  position: relative;
+}
+.temp-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+.words {
+  font-size: 36rpx;
+  position: relative;
+  top: -40rpx;
+  left: 20rpx;
+}
+.temp {
+  display: block;
+  font-size: 54rpx;
+  line-height: 1.82;
+  color: #6c8eb1;
+}
+.other {
+  font-size: 30rpx;
+  line-height: 3;
+}
+.wind {
+  display: inline-block;
+  width: 160rpx;
+  text-align: center;
+}
+.city {
+  position: absolute;
+  left: 53%;
+  top: 22%;
+  width: 50%;
+  text-align: center;
+  color: #6c8eb1;
+  font-size: 65rpx;
+}
+.location {
+  width: 40rpx;
+  height: 40rpx;
+}
+.dry {
+  display: inline-block;
+  width: 160rpx;
+  text-align: center;
+}
+.index {
+  font-size: 30rpx;
+  width: 180rpx;
+  display: inline-block;
+  line-height: 1.33;
+  background-color: #FFEEA3;
+  border-style: none;
+  border-radius: 5px;
+  padding: 4rpx 16rpx;
+  vertical-align: middle;
+  margin-left: 30rpx;
+}

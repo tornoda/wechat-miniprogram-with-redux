@@ -1,0 +1,12 @@
+<!--components/future7Days/future7Days.wxml-->
+<view class="seven-days">
+  <view wx:for="{{future}}" wx:for-index="idx" wx:for-item="oneDay" wx:key="oneday">
+    <future-oneday 
+      date="{{oneDay.date}}"
+      week="{{oneDay.week}}"
+      weather="{{oneDay.day.weather}}"
+      temperature="{{oneDay.night.templow}}℃~{{oneDay.day.temphigh}}℃"
+      wid="{{oneDay.day.img}}"
+    />
+  </view>
+</view>

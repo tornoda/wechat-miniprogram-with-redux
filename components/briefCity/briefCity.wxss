@@ -1,0 +1,67 @@
+/* briefCity.wxss */
+.brief-container {
+  width: 750rpx;
+  opacity: 0;
+  max-height: 0rpx;
+  position: relative;
+}
+/* .brief-container-0 {
+  max-height: 0rpx;
+} */
+.brief-weather {
+  width: 630rpx;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 55rpx;
+  padding-right: 55rpx;
+  padding-top: 26rpx;
+  /* padding-bottom: 26rpx; */
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.brief-img {
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+}
+.brief-info {
+  height: 170rpx;
+  float: right;
+  margin-right: 22rpx
+}
+.brief-name {
+  /* float: left; */
+  font-size: 36rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center
+}
+.brief-temp {
+  /* float: left; */
+  height: 85rpx;
+  font-size: 54rpx;
+  color: #6c8eb1;
+}
+/* 删除按钮区域 */
+.brief-deleteBtn {
+  display: inline-block;
+  text-align: center;
+  font-size: 0;
+  width: 120rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  vertical-align: middle;
+}
+.deleteBtn {
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: red;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 50%;
+  color: #ffffff;
+  vertical-align: middle;
+}

@@ -1,0 +1,24 @@
+<view class="today-pannel" animation="{{animationData}}">
+  <main-info 
+    week="{{week}}"
+    update-time="{{updateTime}}"
+    today-weather="{{todayWeather}}"
+    today-temp="{{todayTemp}}"
+    current-temp="{{currentTemp}}"
+    wind="{{wind}}"
+    humidity="{{humidity}}"
+    wid="{{wid}}"
+    city-name="{{cityName}}"
+    bind:hideAndShow="hideAndShow"
+    is-index-page="{{isIndexPage}}"
+    city-id="{{cityId}}"
+  />
+  <weather-index 
+    dressing-index="{{dressingIndex}}"
+    uv="{{uv}}"
+    car-washing="{{carWashing}}"
+    air-conditioner="{{airConditioner}}"
+    exercising="{{exercising}}"
+    dressing-advice="{{dressingAdvice}}"
+  />
+</view>

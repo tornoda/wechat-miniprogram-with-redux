@@ -1,0 +1,6 @@
+<!--components/cityList/cityList.wxml-->
+<view class='city-list'>
+  <view class="city-list-button" bindtap="onTap">
+    <image class="city-list-image" src="../../img/citylist.png"></image>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "brief-city": "/components/briefCity/briefCity"
+  }
+}

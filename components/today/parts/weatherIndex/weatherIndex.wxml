@@ -1,0 +1,9 @@
+<!--components/today/parts/weatherIndex/weatherIndex.wxml-->
+<view class="index">
+  <view class="list list1"><image src="/img/clothing.png" /><text>穿衣指数：</text><text>{{dressingIndex}}</text></view>
+  <view class="list list2"><image src="/img/uv.png" /><text>紫外线强度：</text><text>{{uv}}</text></view>
+  <view class="list list3"><image src="/img/carwashing.png" /><text>洗车指数：</text><text>{{carWashing}}</text></view>
+  <view class="list list4"><image src="/img/travelling.png" /><text>空调指数：</text><text>{{airConditioner}}</text></view>
+  <view class="list list5"><image src="/img/exercise.png" /><text>晨练指数：</text><text>{{exercising}}</text></view>
+  <view class="list list6"><image src="/img/info.png" /><text>{{dressingAdvice}}</text></view>
+</view>

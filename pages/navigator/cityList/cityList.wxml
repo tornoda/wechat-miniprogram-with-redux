@@ -1,0 +1,30 @@
+<!--cityList.wxml-->
+<view>
+  <view class="city-list" wx:for="{{cityList}}" wx:for-index="idx" wx:for-item="oneCity" wx:key="*this">
+    <brief-city one-city="{{cityWeather[oneCity]}}" bind:deleteCity="deleteCity"/>
+  </view>
+  <form class="city-form" bindsubmit="onSubmit">
+    <view class="city-input" bindtap="showInput" bindtransitionend="handleTransitionend" style="{{style.inputWidth}}">
+      <view class="city-input-inner">
+        <view class="city-button-plus">
+          <input 
+            class="city-name" 
+            style="{{style.inputColor}}"
+            placeholder-style="text-align: center"
+            name="city" 
+            placeholder="请输入城市，如北京"
+            confirm-type="search"
+            adjust-position="true"
+            disabled="{{!toFocusInput}}"
+            focus="{{toFocusInput}}"
+          />
+          <view class="city-cross">
+            <view class="plus-h"></view>
+            <view class="plus-v"></view>
+          </view>
+        </view>
+        <button formType="submit" class="city-button" >添加</button>
+      </view>
+    </view>
+  </form>
+</view>

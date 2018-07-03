@@ -1,0 +1,27 @@
+<!--components/future7Days/future-oneday/futureOneday.wxml-->
+<wxs module="dateProcessor">
+  var getPropertyDate = function (dateWithMess) {
+    var month = dateWithMess.slice(5, 7);
+    var day = dateWithMess.slice(8);
+    return month + "月" + day + "日";
+  };
+  module.exports = {
+    getPropertyDate: getPropertyDate,
+  };
+</wxs>
+<wxs src="./../../../utils/imgSrcProcessor.wxs" module="imgSrcProcessor"></wxs>
+<view class="someday">
+    <view class="date-week flex-column">
+      <view class="common-container">
+        <text class="date">{{dateProcessor.getPropertyDate(date)}}</text>
+        <text class="week">{{week}}</text>
+      </view>
+    </view>
+    <image class="weather-icon" src="{{imgSrcProcessor.getImageSrc(wid, imageList)}}" alt="图标" />
+    <view class="weather-temp flex-column">
+      <view class="common-container">
+        <view><text class="weather">{{weather}}</text></view>
+        <view><text class="temp">{{temperature}}</text></view>
+      </view>
+    </view>
+</view>

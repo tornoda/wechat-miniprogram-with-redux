@@ -1,0 +1,10 @@
+/* components/today/today.wxss */
+.today-pannel {
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 63rpx 34rpx 63rpx 68rpx;
+  color: rgb(136, 136, 136);
+  border-radius: 10rpx;
+  height: 400rpx;
+}

@@ -1,0 +1,29 @@
+<view class="container">
+  <text class="title">Today Weather</text>
+  <view wx:if="{{isIndexPage}}">
+    <city-list bind:navToCityList="navToCityList" />
+  </view>
+  <today week="{{cityWeather.week}}" 
+    update-time="{{cityWeather.updatetime}}" 
+    today-weather="{{cityWeather.weather}}" 
+    today-temp="{{cityWeather.temp}}" 
+    current-temp="{{cityWeather.tempNow}}" 
+    wind="{{cityWeather.wind}}" 
+    humidity="{{cityWeather.humidity}}" 
+    dressing-index="{{cityWeather.dressing.ivalue}}" 
+    uv="{{cityWeather.uv.ivalue}}" 
+    car-washing="{{cityWeather.carwashing.ivalue}}" 
+    air-conditioner="{{cityWeather.airconditioner.ivalue}}" 
+    exercising="{{cityWeather.exercising.ivalue}}" 
+    dressing-advice="{{cityWeather.dressing.detail}}" 
+    wid="{{cityWeather.wid}}"
+    city-name="{{cityWeather.cityName}}" 
+    is-index-page="{{isIndexPage}}" 
+    city-id="{{cityWeather.cityid}}"
+  />
+  <text class="title title-special">Future 7Ds</text>
+  <future-seven-days future="{{cityWeather.future}}" />
+  <view class="footer">
+    <text>作者：looyulong</text>
+  </view>
+</view> 
