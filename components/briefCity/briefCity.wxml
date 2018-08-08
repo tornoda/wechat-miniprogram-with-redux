@@ -1,20 +1,27 @@
 <!--briefCity.wxml-->
-<wxs src="./../../utils/imgSrcProcessor.wxs" module="imgSrcProcessor"></wxs>
-<view class="brief-container {{className}}" style="{{style.btnHideAndShowStyle}}{{style.itemHideStyle}}{{style.normalListStyle}}" data-city-name="{{oneCity.cityName}}">
-  <view bindtap="toDetails" class="brief-weather" id="scroll-to-delete" bindtouchmove="touchmove" bindtouchstart="touchstart" bindtouchend="touchend" data-city-name="{{oneCity.cityName}}">
-    <image class="brief-img" src="{{imgSrcProcessor.getImageSrc(oneCity.wid, imageList)}}" alt="天气图标" />
-    <view class="brief-info">
-      <view class="brief-name">
-        {{oneCity.cityName}}
-      </view>
-      <view class="brief-temp">
-        {{oneCity.temp}}
+<view class="brief-container-outer">
+  <view 
+    class="brief-deleteBtn {{isBtnShow ? 'btnShow' : ''}}" 
+    bindtap="deleteCity"
+    style="display: {{(indexCity === oneCity.cityName) ? 'none' : ''}}"
+  >
+    <image 
+      src="/img/delete.png"
+      class="deleteBtn" 
+      data-city-name="{{oneCity.cityName}}"
+    />
+  </view>
+  <view class="brief-container" animation="{{animationData}}" data-city-name="{{oneCity.cityName}}">
+    <view bindtap="toDetails" class="brief-weather" id="scroll-to-delete" data-city-name="{{oneCity.cityName}}">
+      <image class="brief-img" src="{{oneCity.wid}}" alt="天气图标" />
+      <view class="brief-info">
+        <view class="brief-name">
+          {{oneCity.cityName}}
+        </view>
+        <view class="brief-temp">
+          {{oneCity.temp}}
+        </view>
       </view>
     </view>
-  </view>
-  <view class="brief-deleteBtn">
-    <botton class="deleteBtn" bindtap="foldingItem" data-city-name="{{oneCity.cityName}}">
-      删除
-    </botton>
   </view>
 </view>

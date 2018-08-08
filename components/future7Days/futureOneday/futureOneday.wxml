@@ -9,7 +9,6 @@
     getPropertyDate: getPropertyDate,
   };
 </wxs>
-<wxs src="./../../../utils/imgSrcProcessor.wxs" module="imgSrcProcessor"></wxs>
 <view class="someday">
     <view class="date-week flex-column">
       <view class="common-container">
@@ -17,7 +16,7 @@
         <text class="week">{{week}}</text>
       </view>
     </view>
-    <image class="weather-icon" src="{{imgSrcProcessor.getImageSrc(wid, imageList)}}" alt="图标" />
+    <image class="weather-icon" src="{{wid}}" alt="图标" />
     <view class="weather-temp flex-column">
       <view class="common-container">
         <view><text class="weather">{{weather}}</text></view>

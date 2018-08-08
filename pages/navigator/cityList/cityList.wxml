@@ -1,7 +1,15 @@
 <!--cityList.wxml-->
 <view>
+  <view class="city-edit">
+    <button class="city-edit-btn" ontap="toggleEdit">{{isBtnShow ? "完成" : "编辑"}}</button>
+  </view>
   <view class="city-list" wx:for="{{cityList}}" wx:for-index="idx" wx:for-item="oneCity" wx:key="*this">
-    <brief-city one-city="{{cityWeather[oneCity]}}" bind:deleteCity="deleteCity"/>
+    <brief-city 
+      isBtnShow="{{isBtnShow}}"
+      one-city="{{cityWeather[oneCity]}}" 
+      indexCity="{{cityList[0]}}"
+      bind:deleteCity="deleteCity"
+    />
   </view>
   <form class="city-form" bindsubmit="onSubmit">
     <view class="city-input" bindtap="showInput" bindtransitionend="handleTransitionend" style="{{style.inputWidth}}">

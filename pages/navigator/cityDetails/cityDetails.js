@@ -1,31 +1,39 @@
 // cityDetails.js
-let cityName = "";
-const app = getApp();
+import { store } from '../../../app'
+import { getWeather } from '../../../actions/fetchingData'
+import { WEATHER_URL } from '../../index/index'
+
+let city = ''
+const { dispatch, subscribe, getState } = store
 
 Page({
   data: {
     cityWeather: {},
-    isIndexPage: false
   },
   onLoad: function (options) {
     console.log(options)
-    cityName = options["cityName"];
+    city = options["cityName"]
   },
 
   onReady: function () {
-    this.updateWeatherFromGlobal(cityName);
+    const _this = this
+    const { citiesWeather } = getState()
+    _this.setData({
+      cityWeather: citiesWeather[city]
+    })
+    //注册自动更新UI
+    subscribe(
+      () => {
+        const { citiesWeather } = getState()
+        _this.setData({
+          cityWeather: citiesWeather[city]
+        })
+      }
+    )
   },
   onPullDownRefresh: function () {
-    this.updateWeatherFromGlobal()
+    const url = `${WEATHER_URL}city=${city}`
+    dispatch(getWeather({ url: url }))
       .then(() => wx.stopPullDownRefresh());
-  },
-  updateWeatherFromGlobal: function (cityName) {
-    const _this = this;
-    const cityWeather =  app.globalData.cityWeather;
-    return new Promise ((resolve) => {
-      _this.setData({
-        cityWeather: cityWeather[cityName]
-      }, () => {resolve()})
-    })
   },
 })

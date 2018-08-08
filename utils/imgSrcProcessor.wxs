@@ -1,8 +1,0 @@
-var getImageSrc = function (wid, imageList) {
-  console.log(wid)
-  var pngName = imageList[wid];
-  return  "/img/" + pngName + ".png"
-};
-module.exports = {
-  getImageSrc: getImageSrc,
-};

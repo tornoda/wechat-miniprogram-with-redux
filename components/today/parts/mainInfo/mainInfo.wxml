@@ -1,12 +1,11 @@
 <!--components/today/parts/mainInfo/mainInfo.wxml-->
-<wxs src="./../../../../utils/imgSrcProcessor.wxs" module="imgSrcProcessor"></wxs>
 <view class="info">
     <view class="header">
       <text class="week">{{week}}</text>
       <text class="update-time">{{updateTime + " 更新"}}</text>
     </view>
     <view class="main">
-        <image class="temp-img" src="{{imgSrcProcessor.getImageSrc(wid, imageList)}}" alt="天气图标" />
+        <image class="temp-img" src="{{wid}}" alt="天气图标" />
         <text class="words">{{todayWeather}}</text>
         <text class="temp">{{todayTemp}}</text>
         <view class="city">

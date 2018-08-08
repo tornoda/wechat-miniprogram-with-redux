@@ -1,6 +1,4 @@
 // components/future7Days/future-oneday/futureOneday.js
-const app = getApp();
-const imageList = app.globalData.imageList;
 
 
 Component({
@@ -19,7 +17,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imageList: imageList
   },
 
   /**

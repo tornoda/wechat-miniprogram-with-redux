@@ -1,9 +1,13 @@
 /* briefCity.wxss */
-.brief-container {
-  width: 750rpx;
-  opacity: 0;
-  max-height: 0rpx;
+.brief-container-outer {
   position: relative;
+}
+.brief-container {
+  overflow: hidden;
+  width: 630rpx;
+  height: 196rpx;
+  position: relative;
+  left: 0;
 }
 /* .brief-container-0 {
   max-height: 0rpx;
@@ -45,23 +49,20 @@
 }
 /* 删除按钮区域 */
 .brief-deleteBtn {
-  display: inline-block;
-  text-align: center;
-  font-size: 0;
-  width: 120rpx;
-  height: 120rpx;
-  line-height: 120rpx;
-  vertical-align: middle;
+  z-index: 1;
+  transition: all 0.3s;
+  position: absolute;
+  opacity: 0;
+  width: 40rpx;
+  height: 40rpx;
+  right: -20rpx;
+  top: -20rpx;
+  overflow: hidden;
 }
 .deleteBtn {
-  display: inline-block;
-  width: 80rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  background-color: red;
-  font-size: 30rpx;
-  text-align: center;
-  border-radius: 50%;
-  color: #ffffff;
-  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+.btnShow {
+  opacity: 1;
 }

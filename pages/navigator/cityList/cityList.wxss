@@ -1,10 +1,24 @@
 /* cityList.wxss */
+/* 编辑按钮样式 */
+.city-edit {
+  text-align: right;
+}
+.city-edit-btn {
+  display: inline-block;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  line-height: 54rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+}
 /* 城市列表样式 */
 .city-list {
   width: 630rpx;
   margin: 0 auto;
   margin-top: 14rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 /* 输入框 */
 .city-form {

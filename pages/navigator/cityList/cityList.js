@@ -1,15 +1,25 @@
 // cityList.js
-const app = getApp();
-const toast = app.getToast();
+import { store } from '../../../app'
+import {
+  handleName,
+  saveWeather,
+  SAVE_NAME,
+  DELETE_NAME
+} from '../../../actions/simpleActions'
+import { getWeather } from '../../../actions/fetchingData'
+import { WEATHER_URL } from '../../index/index'
+
+const { getState, dispatch, subscribe } = store
 
 Page({
-  
+
   /**
    * 页面的初始数据
    */
   data: {
     cityWeather: {},
     cityList: [],
+    isBtnShow: false,
     initPageX: 0,
     delShow: "",
     toDelCity: "",
@@ -19,60 +29,55 @@ Page({
       inputColor: ""
     }
   },
-  
+
+  onLoad: function () {
+    const _this = this
+    // const { cities, citiesWeather } = getState()
+    //一旦store中的state有变化，就会更新UI
+    subscribe(
+      () => {
+        const { cities, citiesWeather } = getState()
+        _this.setData({
+          cityWeather: citiesWeather,
+          cityList: cities
+        })
+      }
+    )
+  },
   onReady: function () {
-    this.updateWeatherFromGlobal();
+    const _this = this
+    const { cities, citiesWeather } = getState()
+    if (cities.length > 1) {
+      _this.refreshCitiesWeather()
+    } else {
+      _this.setData({
+        cityWeather: citiesWeather,
+        cityList: cities
+      })
+    }
   },
   onPullDownRefresh: function () {
     this.refreshCitiesWeather()
   },
-  // // 自定义方法
-  // getWeatherWithName: function (cityName) {
-  //   return new Promise ((resolve) => {
-  //     wx.request({
-  //       url: "https://v.juhe.cn/weather/index?format=2&cityname=" + cityName + "&key=f8b7952e1e6464068c55ef74eaea3c59",
-  //       success: (response) => {
-  //         const {
-  //           result: {
-  //             sk,
-  //           today,
-  //           future
-  //           }
-  //       } = JSON.parse(JSON.stringify(response.data));
-  //         resolve({
-  //           cityName: today.city,
-  //           now: sk,
-  //           today: today,
-  //           future: future
-  //         })
-  //       }
-  //     })
-  //   })
-  // },
+  toggleEdit: function () {
+    this.setData({
+      isBtnShow: !this.data.isBtnShow
+    })
+  },
   onSubmit: function (e) {
-    const _this = this;
-    const newCity = e.detail.value.city;
-    const cityList = app.globalData.cityList.slice();
-    //根据输入的城市名称来更新citylist天气和城市列表
-    if (cityList.indexOf(newCity) !== -1) {
-      toast.showToast({ content: "城市已存在"})
-      return false;
-    }
-    toast.showLoading({ mask: true });
-    app.getCityWeatherUrl(newCity)
-      .then((nameAndUrl) => {
-        return app.updateCityInfo(nameAndUrl)
-      })
-      .then((thisCityWeather) => {
-        const cityWeather = app.globalData.cityWeather;
-        const cityList = app.globalData.cityList;
-        console.log(thisCityWeather);
-        // const newList = app.convertCollectionToList(cityWeatherCollection, cityList);
-        _this.setData({
-          cityWeather: cityWeather,
-          cityList: cityList
-        }, () => {toast.hideLoading()});
-      })
+    //这里的局部数据isBtnShow没有放入redux
+    this.setData({
+      isBtnShow: false/* 在编辑状态下添加城市，会自动退出编辑状态 */
+    })
+    const city = e.detail.value.city
+    const url = `${WEATHER_URL}city=${city}`
+    dispatch(handleName(SAVE_NAME, city))
+    dispatch(getWeather({ url }))
+      .then(
+        (weather) => {
+          dispatch(saveWeather(weather))
+        }
+      )
   },
   showInput: function (e) {
     if (!this.data.isInputShow) {
@@ -94,50 +99,24 @@ Page({
   },
   deleteCity: function (event) {
     const cityName = event.detail.target.dataset.cityName;
-    const cityList = app.globalData.cityList;
-    const cityWeather = app.globalData.cityWeather;
-    const index = cityList.indexOf(cityName);
-    cityList.splice(index, 1);
-    delete cityWeather[cityName];
-    //更新UI
-    this.setData({
-      cityList: cityList
-    })
-    //更新localStorage的城市列表信息
-    wx.setStorage({
-      key: "cityList",
-      data: cityList
-    });
-    //更新全局数据
-    app.globalData.cityList = cityList;
-    app.globalData.cityWeather = cityWeather;
-  },
-  //从globalData获取数据更新天气列表和天气。
-  updateWeatherFromGlobal: function () {
-    const cityWeather = app.globalData.cityWeather;
-    const cityList = app.globalData.cityList;
-    this.setData({
-      cityList: cityList,
-      cityWeather: cityWeather
-    });
+    dispatch(handleName(DELETE_NAME, cityName))
   },
   //刷新城市列表天气
-  //return Promise.resolve():
   refreshCitiesWeather: function () {
-    toast.showLoading({});
     const _this = this;
-    const cityList = app.globalData.cityList.slice();
-    const cityPromise = app.updatecitiesWeather(cityList);
-    return Promise.all(cityPromise)
-      .then(() => {
-        _this.setData({
-          cityList: app.globalData.cityList,
-          cityWeather: app.globalData.cityWeather
+    const { cities } = getState()
+    const allRequset = cities.map((val) => {
+      const url = `${WEATHER_URL}&city=${val}`
+      return dispatch(getWeather({ url }))
+        .then((weather) => {
+          dispatch(saveWeather(weather))
         })
-      })
-      .then(() => {
-        wx.stopPullDownRefresh();
-        toast.hideLoading();
-      })
+    })
+    Promise.all(allRequset)
+      .then(
+        () => {
+          wx.stopPullDownRefresh();
+        }
+      )
   }
 })
