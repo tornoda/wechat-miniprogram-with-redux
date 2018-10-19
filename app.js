@@ -1,9 +1,9 @@
 //app.js
 //使用redux来辅助完场这个应用
 import reducer from './reducer/index'
-import { createStore, applyMiddleware } from './module/redux'
+import { createStore, applyMiddleware } from './module/redux.min'
 import logger from './module/redux-logger'//redux控制台debug中间件
-import thunkMiddleware from './module/redux-thunk'//redux处理异步请求中间件
+import thunkMiddleware from './module/redux-thunk.min'//redux处理异步请求中间件
 import { SAVE_NAMES, handleName } from './actions/simpleActions'
 import { setStorage, getStorage } from './utils/wxPromise'
 
@@ -31,5 +31,5 @@ App({
       key: "cities",
       data: cities
     })
-  },
+  }
 })

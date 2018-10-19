@@ -8,10 +8,11 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.0",
+	"libVersion": "2.2.2",
 	"appid": "wx053d9137c77cc9c5",
 	"projectname": "%E8%BF%B7%E4%BD%A0%E5%A4%A9%E6%B0%94",
 	"svr": "",

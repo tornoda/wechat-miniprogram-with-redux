@@ -13,7 +13,7 @@ export const disposeHandleName = (state = defaultNameList, action) => {
   const position = state.indexOf(name)
   switch (action.type) {
     case `${SAVE_NAME}_${name}`:
-      //处理不存在的情况，把indexCity放在最前
+      //若城市不在列表中
       if (position === -1) {
         ////首页城市的情况
         if (action.isIndexCity)
